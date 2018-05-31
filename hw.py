@@ -14,6 +14,6 @@ def hello():
 
 @app.route("/data")
 def get_rows(db):
-    sql = "SELECT * FROM clemson_stats_db;"
-    jsonify(sql)
-    return db.query(sql)
+    rows = db.query("SELECT * FROM clemson_stats_db;")
+    return rows
+    print(rows.export('json'))
